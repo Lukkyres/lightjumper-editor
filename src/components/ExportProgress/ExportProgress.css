@@ -1,0 +1,78 @@
+.export-progress-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.export-progress-container {
+  background-color: var(--background-primary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 24px;
+  width: 400px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.export-progress-container h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.progress-bar-container {
+  height: 10px;
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--accent-blue);
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-percentage {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 8px 0;
+  color: var(--text-primary);
+}
+
+.progress-status {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  min-height: 1.5em;
+  font-size: 14px;
+}
+
+.cancel-button {
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cancel-button:hover {
+  background-color: var(--danger);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

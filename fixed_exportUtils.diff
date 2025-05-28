@@ -1,0 +1,19 @@
+--- exportUtils.ts.original
++++ exportUtils.ts.fixed
+@@ -255,7 +255,7 @@
+     
+     // Font settings - larger for HD
+     const fontSize = options.HD ? 24 : 16;
+-    const fontFamily = 'Arial';
++    // const fontFamily = 'Arial'; // Kept for future implementation
+     const textColor = 'white';
+     
+     // Pre-calculate all animation pixels for ALL frames
+@@ -736,7 +736,7 @@
+     // Font settings - larger for HD
+     const fontSize = options.HD ? 24 : 16;
+-    const fontFamily = 'Arial';
++    // const fontFamily = 'Arial'; // Kept for future implementation
+     const textColor = 'white';
+     
+     // Pre-calculate all animation pixels for ALL frames

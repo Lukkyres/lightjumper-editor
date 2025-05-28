@@ -1,0 +1,125 @@
+.rectangle-states-list {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.states-list-header {
+  display: flex;
+  font-weight: bold;
+  padding: 8px 10px;
+  border-bottom: 1px solid #3a3a3a;
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.state-number {
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.state-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.state-position {
+  flex: 1;
+  min-width: 90px;
+}
+
+.state-size {
+  flex: 1;
+  min-width: 70px;
+}
+
+.state-delay {
+  width: 90px;
+}
+
+.state-actions {
+  width: 80px; /* Breiter für mehr Platz */
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.states-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.state-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #3a3a3a;
+  border-left: 4px solid transparent;
+  cursor: move;
+  transition: background-color 0.2s, transform 0.1s;
+  background-color: #333;
+  margin: 4px 0;
+  border-radius: 4px;
+}
+
+.state-item:hover {
+  background-color: #3a3a3a;
+}
+
+.state-item.selected {
+  background-color: #444;
+  box-shadow: 0 0 0 1px #666;
+}
+
+.state-item.dragging {
+  opacity: 0.6;
+  transform: scale(1.02);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.state-item.drag-over {
+  border-top: 2px dashed #666;
+}
+
+.state-item input {
+  background-color: #444;
+  border: 1px solid #555;
+  border-radius: 3px;
+  color: white;
+  padding: 4px 6px;
+  width: 60px;
+  font-size: 12px;
+}
+
+.state-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  font-size: 16px;
+}
+
+.state-actions button:hover {
+  opacity: 1;
+}
+
+.state-actions .edit-button:hover {
+  color: #4dabf7;
+}
+
+.state-actions .delete-button:hover {
+  color: #fa5252;
+}
+
+.state-actions button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

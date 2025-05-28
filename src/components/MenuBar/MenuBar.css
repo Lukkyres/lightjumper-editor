@@ -1,0 +1,397 @@
+.menu-bar {
+  height: var(--menubar-height);
+  background-color: var(--background-secondary);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  user-select: none;
+}
+
+.menu-bar-left,
+.menu-bar-center,
+.menu-bar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.menu-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.menu-button:hover {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.menu-button.active {
+  background-color: var(--accent-blue-alpha);
+  color: var(--accent-blue);
+}
+
+.menu-button:active {
+  transform: translateY(1px);
+}
+
+.menu-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Project Name Styles */
+.project-name-container {
+  display: flex;
+  align-items: center;
+  margin-right: var(--space-md);
+}
+
+.project-name {
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.project-name:hover {
+  color: var(--accent-blue);
+}
+
+.project-name-input {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 3px 6px;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+/* Variation Navigation Styles */
+.variation-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  margin-left: var(--space-sm);
+}
+
+/* Undo/Redo History Controls */
+.menu-bar-history-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: var(--space-sm);
+  margin-right: var(--space-sm);
+}
+
+.menu-bar-history-controls button {
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-sm);
+}
+
+.menu-bar-history-controls button:hover {
+  background-color: var(--background-hover);
+}
+
+.variation-indicator {
+  display: flex;
+  align-items: center;
+  padding: 3px 8px;
+  min-width: 100px;
+  text-align: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.variation-name {
+  color: var(--accent-blue);
+}
+
+.main-project-name {
+  color: var(--text-secondary);
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.icon-button:hover {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+}
+
+.update-variation-button {
+  color: var(--accent-green);
+}
+
+.update-variation-button:hover {
+  color: var(--accent-green);
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.add-variation-button {
+  color: var(--accent-purple);
+}
+
+.add-variation-button:hover {
+  color: var(--accent-purple);
+  background-color: rgba(191, 90, 242, 0.15);
+}
+
+.update-main-button {
+  color: var(--accent-blue);
+}
+
+.update-main-button:hover {
+  color: var(--accent-blue);
+  background-color: var(--accent-blue-alpha);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: var(--space-xs);
+}
+
+.dropdown-menu button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  text-align: left;
+  padding: var(--space-sm);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.dropdown-menu button:hover {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+/* Loop functionality styles */
+.dropdown-menu-item-with-checkbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.dropdown-menu-item-with-checkbox button {
+  flex-grow: 1;
+  text-align: left;
+  border-right: 1px solid var(--border-light);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.small-checkbox-container {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.small-checkbox-container input[type="checkbox"] {
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.small-checkbox-container:hover {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.checkbox-label {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+.dialog-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: var(--space-md);
+  padding: var(--space-sm);
+  background-color: var(--background-tertiary);
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+
+/* Dialog Info Text */
+.dialog-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  background-color: rgba(30, 30, 50, 0.3);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  margin-top: 10px;
+  border-left: 3px solid var(--accent-blue);
+}
+
+/* General Modal Styles (can be moved to a global CSS if used elsewhere) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.modal-content {
+  background-color: var(--background-primary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: var(--text-primary);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.modal-actions {
+  margin-top: var(--space-lg);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.modal-actions button {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modal-actions button:first-child { /* Assuming close/cancel is first */
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+.modal-actions button:first-child:hover {
+  background-color: var(--background-hover);
+}
+
+.modal-actions button:last-child { /* Assuming confirm/download is last */
+  background-color: var(--accent-blue);
+  color: white;
+}
+.modal-actions button:last-child:hover {
+  background-color: var(--accent-blue-hover);
+}
+.modal-actions button:disabled {
+  background-color: var(--background-disabled);
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+
+/* Specific styles for ZIP Preview Modal */
+.zip-preview-modal img {
+  display: block;
+  margin: 0 auto var(--space-md) auto; /* Center image and add bottom margin */
+  border: 1px solid var(--border-light);
+  background-color: #000; /* Black background for the image itself if it has transparency */
+}
+
+.zip-preview-modal p {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}

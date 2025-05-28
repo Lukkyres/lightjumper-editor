@@ -1,0 +1,229 @@
+.layers-panel {
+  width: 100%;
+  height: 50%; /* Limitieren auf 50% der Höhe */
+  background-color: var(--background-secondary);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  overflow: hidden;
+}
+
+.layers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.layers-header h2 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.add-layer-button {
+  background-color: var(--background-tertiary);
+  color: var(--text-secondary);
+  border: none;
+  border-radius: var(--radius-sm);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.add-layer-button:hover {
+  background-color: var(--background-elevated);
+  color: var(--text-primary);
+}
+
+.layers-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xs);
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-xs);
+  background-color: var(--background-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative; /* Für positionierte Elemente innerhalb */
+}
+
+.layer-item:hover {
+  background-color: var(--background-elevated);
+}
+
+.layer-item.active {
+  background-color: rgba(10, 132, 255, 0.15);
+  border-left: 2px solid var(--accent-blue);
+}
+
+.layer-item.dragged {
+  opacity: 0.5;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+  background-color: rgba(10, 132, 255, 0.05);
+  border: 1px dashed rgba(10, 132, 255, 0.5);
+}
+
+.layer-item.drag-over {
+  background-color: rgba(10, 132, 255, 0.2);
+  outline: 2px solid var(--accent-blue);
+  position: relative;
+  z-index: 1;
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.layer-item.drag-over::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--accent-blue);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.layer-item[draggable=true]:hover {
+  outline: none;
+}
+
+.layer-item:not(.dragged)[draggable=true]:hover::before {
+  content: none;
+}
+
+.layer-controls {
+  display: flex;
+  gap: var(--space-xs);
+  margin-right: var(--space-sm);
+}
+
+.layer-button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.layer-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.layer-button.active {
+  color: var(--accent-blue);
+}
+
+.layer-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.layer-name {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layer-actions {
+  display: flex;
+  gap: 2px;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.layer-item:hover .layer-actions {
+  opacity: 1;
+}
+
+.rename-dialog {
+  width: 300px;
+}
+
+/* Top-Drop-Zone - größerer Bereich für einfacheres Ablegen an oberster Stelle */
+.top-drop-zone {
+  min-height: 20px;
+  padding: 4px;
+  margin-bottom: 6px;
+  border-radius: var(--radius-sm);
+  position: relative;
+}
+
+/* Highlight-Effekt für die Top-Drop-Zone beim Hovern */
+.top-drop-zone:hover {
+  background-color: rgba(10, 132, 255, 0.05);
+}
+
+/* Drop-Indikator - Linie zwischen den Ebenen */
+.drop-indicator {
+  height: 4px;
+  background-color: var(--accent-blue);
+  margin: 0;
+  border-radius: 2px;
+  animation: pulse 1.5s infinite ease-in-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+/* Spezieller Stil für den obersten Indikator */
+.drop-indicator.top-indicator {
+  top: 0;
+  height: 5px; /* Etwas größer für bessere Sichtbarkeit */
+  background-color: var(--accent-blue);
+  box-shadow: 0 0 4px var(--accent-blue);
+}
+
+/* Position der Indikatoren relativ zu den Ebenen */
+.layer-item-container {
+  position: relative;
+  margin-bottom: var(--space-xs);
+}
+
+/* Position des oberen Indikators */
+.layer-item-container .drop-indicator:first-child {
+  top: -2px;
+}
+
+/* Position des unteren Indikators */
+.layer-item-container .drop-indicator:last-child {
+  bottom: -2px;
+}
+
+/* Pulseffekt für die Drop-Indikatoren */
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px var(--accent-blue);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 6px var(--accent-blue);
+  }
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px var(--accent-blue);
+  }
+}
